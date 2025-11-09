@@ -1,0 +1,6 @@
+site_name: "My Portfolio"
+nav:
+  - Home: index.md
+
+theme:
+  name: readthedocs
