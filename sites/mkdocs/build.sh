@@ -1,4 +1,6 @@
 #!/bin/bash
-# Install Python dependencies and run the MkDocs build command
+# Install Python dependencies
 pip install -r requirements.txt
-mkdocs build
+
+# Run MkDocs using the 'python -m' module execution method
+python -m mkdocs build
