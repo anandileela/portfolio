@@ -1,0 +1,14 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+
+# The main section for all module-related configurations
+[module]
+  # This array tells Hugo which external repositories (modules) to import.
+  [[module.imports]]
+    # The 'path' must be the full Git repository path, WITHOUT the 'https://' or 'git@' protocol.
+    path = "github.com/adityatelange/hugo-PaperMod"
+
+  # If you wanted to import another module (e.g., a shortcode library), you would add another block:
+  # [[module.imports]]
+  #   path = "github.com/someuser/hugo-shortcodes-pack"

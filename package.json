@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Monorepo for technical writing portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+"private": true,
+  "packageManager": "pnpm@10.20.0",
+  "dependencies": {
+    "turbo": "^2.6.0"
+  }
+}
