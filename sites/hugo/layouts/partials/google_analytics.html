@@ -1,5 +1,10 @@
-{{- /* Render Google Analytics only if a GA ID is set. Supports .Site.Params.googleAnalytics or legacy .Site.GoogleAnalytics. */ -}}
-{{- $ga := .Site.Params.googleAnalytics | default .Site.GoogleAnalytics -}}
+{{- /* Safe Google Analytics partial.
+     Use site param "googleAnalytics" or "google_analytics".
+     This avoids referencing .Site.GoogleAnalytics directly (which can error in some contexts). */ -}}
+{{- $ga := index .Site.Params "googleAnalytics" -}}
+{{- if not $ga -}}
+  {{- $ga = index .Site.Params "google_analytics" -}}
+{{- end -}}
 {{- if $ga -}}
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga }}"></script>
