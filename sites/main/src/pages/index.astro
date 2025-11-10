@@ -161,6 +161,39 @@ import { Icon } from 'astro-icon/components'
     </div>
   </section>
 </DefaultLayout>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="w-full bg-gray-800 text-white text-center p-4 text-sm">
+        &copy; 2024 My Monorepo Portfolio. All Rights Reserved.
+    </footer>
+
+    <!-- Dropdown JavaScript Logic -->
+<script>
+  // existing: Toggle dropdown on button click
+  dropdownButton.addEventListener('click', toggleDropdown);
+
+  // replace the document click handler implementation with this:
+  function onDocumentClick(event: Event) {
+    // Narrow event.target to Node before using .contains
+    const target = event.target;
+    if (!(target instanceof Node)) return; // safe-guard for non-Node EventTargets
+
+    if (!dropdownButton.contains(target) && !dropdownMenu.contains(target)) {
+      // your existing logic to close the dropdown
+      closeDropdown();
+    }
+  }
+
+  document.addEventListener('click', onDocumentClick);
+</script>                
+}
+            }
+        });
+    </script>
+</body>
+</html>
 
 <style>
   .avatar {
