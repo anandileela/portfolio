@@ -1,0 +1,12 @@
+{{- /* Render Google Analytics only if a GA ID is set. Supports .Site.Params.googleAnalytics or legacy .Site.GoogleAnalytics. */ -}}
+{{- $ga := .Site.Params.googleAnalytics | default .Site.GoogleAnalytics -}}
+{{- if $ga -}}
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ $ga }}');
+</script>
+{{- end -}}
