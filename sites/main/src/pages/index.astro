@@ -82,26 +82,25 @@
     </footer>
 
     <!-- Dropdown JavaScript Logic -->
-    <script>
-        const dropdownButton = document.getElementById('dropdownButton');
-        const dropdownMenu = document.getElementById('dropdownMenu');
+<script>
+  // existing: Toggle dropdown on button click
+  dropdownButton.addEventListener('click', toggleDropdown);
 
-        function toggleDropdown() {
-            // Use 'aria-expanded' for better accessibility
-            const isExpanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
-            dropdownButton.setAttribute('aria-expanded', !isExpanded);
-            dropdownMenu.classList.toggle('hidden');
-        }
+  // replace the document click handler implementation with this:
+  function onDocumentClick(event: Event) {
+    // Narrow event.target to Node before using .contains
+    const target = event.target;
+    if (!(target instanceof Node)) return; // safe-guard for non-Node EventTargets
 
-        // Toggle dropdown on button click
-        dropdownButton.addEventListener('click', toggleDropdown);
+    if (!dropdownButton.contains(target) && !dropdownMenu.contains(target)) {
+      // your existing logic to close the dropdown
+      closeDropdown();
+    }
+  }
 
-        // Close dropdown when clicking outside
-        window.addEventListener('click', function(event) {
-            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                if (!dropdownMenu.classList.contains('hidden')) {
-                    toggleDropdown(); // Use toggle function to update aria state
-                }
+  document.addEventListener('click', onDocumentClick);
+</script>                
+}
             }
         });
     </script>
