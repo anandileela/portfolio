@@ -1,16 +1,113 @@
 ---
-
+// This is the Astro Component Script/Frontmatter.
+// We keep it empty for this simple static page.
 ---
-
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Hub</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Font Setup */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light Gray Background */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo/Title -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-extrabold text-indigo-600 tracking-tight">
+                        My Portfolio Hub
+                    </span>
+                </div>
+
+                <!-- Subdomain Dropdown -->
+                <div class="flex items-center">
+                    <div class="relative">
+                        <!-- Dropdown Toggle Button -->
+                        <button id="dropdownButton" type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                            View Documentation & Projects
+                            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div id="dropdownMenu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 hidden z-10">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton">
+                                <a href="https://docusaurus.anandiwrites.dev" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg mx-2 transition duration-100" role="menuitem">
+                                    Docusaurus (User Docs)
+                                </a>
+                                <a href="https://mkdocs.anandiwrites.dev" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg mx-2 transition duration-100" role="menuitem">
+                                    MkDocs (Technical Guides)
+                                </a>
+                                <a href="https://api.yourdomain.com" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg mx-2 transition duration-100" role="menuitem">
+                                    Redocly (API Specs)
+                                </a>
+                                <a href="https://hugo.anandiwrites.dev" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg mx-2 transition duration-100" role="menuitem">
+                                    Hugo (Dev Blog)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="text-center bg-white p-10 rounded-xl shadow-2xl border-t-4 border-indigo-600 transform hover:scale-[1.01] transition duration-300">
+            <h1 class="text-6xl font-extrabold text-gray-800 mb-4">Hello World.</h1>
+            <p class="text-xl text-gray-600 mb-6">
+                Welcome to the central hub for all my projects and documentation.
+            </p>
+            <p class="text-md text-gray-500">
+                Use the dropdown above to navigate to the specialized sub-sites.
+            </p>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="w-full bg-gray-800 text-white text-center p-4 text-sm">
+        &copy; 2024 My Monorepo Portfolio. All Rights Reserved.
+    </footer>
+
+    <!-- Dropdown JavaScript Logic -->
+    <script>
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        function toggleDropdown() {
+            // Use 'aria-expanded' for better accessibility
+            const isExpanded = dropdownButton.getAttribute('aria-expanded') === 'true' || false;
+            dropdownButton.setAttribute('aria-expanded', !isExpanded);
+            dropdownMenu.classList.toggle('hidden');
+        }
+
+        // Toggle dropdown on button click
+        dropdownButton.addEventListener('click', toggleDropdown);
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function(event) {
+            if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                if (!dropdownMenu.classList.contains('hidden')) {
+                    toggleDropdown(); // Use toggle function to update aria state
+                }
+            }
+        });
+    </script>
+</body>
 </html>
+
