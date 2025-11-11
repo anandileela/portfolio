@@ -1,0 +1,7 @@
+# Redocly configuration file
+extends:
+  - recommended
+
+apis:
+  main:
+    root: openapi.yaml
