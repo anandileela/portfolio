@@ -1,9 +1,39 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_907_31" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
-<rect width="512" height="512" rx="80" fill="#161618"/>
-</mask>
-<g mask="url(#mask0_907_31)">
-<path d="M166.892 69.3845H390.357L226.065 315.018H2.6001L166.892 69.3845Z" fill="#42E0CE"/>
-<path d="M176.677 337.783L113.043 432.923H347.108L511.4 187.29H338.645L237.988 337.783H176.677Z" fill="#A14FD6"/>
-</g>
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Transparent Background -->
+    <rect width="400" height="400" fill="none"/>
+
+    <!-- The Venn Diagram structure is created by two overlapping circles (radius 100) -->
+    <!-- The slight opacity allows the overlap to create the middle color blend. -->
+
+    <!-- 1. Left Circle (Pink/Magenta) -->
+    <circle 
+        cx="160" 
+        cy="200" 
+        r="100" 
+        fill="#FF69B4" 
+        opacity="0.75"
+    />
+
+    <!-- 2. Right Circle (Aqua/Teal) -->
+    <circle 
+        cx="240" 
+        cy="200" 
+        r="100" 
+        fill="#42E0CE" 
+        opacity="0.75"
+    />
+
+    <!-- To make it visually center, we wrap the groups and apply a small global translation -->
+    <g transform="translate(40, 0)">
+        <!-- 3. Shadow/Outline (Subtle Purple) - Optional enhancement -->
+        <circle cx="160" cy="200" r="105" fill="#A14FD6" opacity="0.1"/>
+        <circle cx="240" cy="200" r="105" fill="#A14FD6" opacity="0.1"/>
+
+        <!-- 1. Left Circle (Pink/Magenta) -->
+        <circle cx="160" cy="200" r="100" fill="#FF69B4" opacity="0.75"/>
+
+        <!-- 2. Right Circle (Aqua/Teal) -->
+        <circle cx="240" cy="200" r="100" fill="#42E0CE" opacity="0.75"/>
+    </g>
+
 </svg>
