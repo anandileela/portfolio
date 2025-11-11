@@ -20,6 +20,8 @@ paths:
       summary: Get a chronological feed for hashtags
       description: Returns a list of social media posts filtered by hashtags, sorted by newest first
       operationId: getFeed
+      tags:
+        - Feed
       parameters:
         - name: hashtags
           in: query
