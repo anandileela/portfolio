@@ -1,6 +1,218 @@
-# openapi.yaml
-openapi: 3.0.0
+openapi: 3.0.1
 info:
-  title: My API Documentation
-  version: 1.0.0
-# ... rest of your spec
+  title: Instagram Hashtag Feed API
+  version: "0.1.0"
+  description: >
+    Simple API that returns chronological posts for provided hashtags.
+    Supports "mock" mode (no credentials) and optional "instagram" mode (requires Instagram Graph API tokens).
+    
+    
+    **Main Portfolio**: [https://anandiwrites.dev](https://anandiwrites.dev)
+  contact:
+    name: API Support
+    url: https://anandiwrites.dev
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+paths:
+  /api/feed:
+    get:
+      summary: Get a chronological feed for hashtags
+      description: Returns a list of social media posts filtered by hashtags, sorted by newest first
+      operationId: getFeed
+      parameters:
+        - name: hashtags
+          in: query
+          description: Comma-separated list of hashtags to search
+          required: false
+          schema:
+            type: string
+            example: family,kids,nyc
+            default: family,kids,nyc
+        - name: limit
+          in: query
+          description: Maximum number of items to return (1-100)
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 25
+        - name: mode
+          in: query
+          description: Data source - "mock" returns sample data, "instagram" fetches from Instagram Graph API
+          required: false
+          schema:
+            type: string
+            enum: [mock, instagram]
+            default: mock
+      responses:
+        '200':
+          description: A list of feed items sorted newest-first
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - count
+                  - items
+                properties:
+                  count:
+                    type: integer
+                    example: 3
+                    description: Number of items returned
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FeedItem'
+              examples:
+                mockResponse:
+                  summary: Example response in mock mode
+                  value:
+                    count: 2
+                    items:
+                      - id: "mock-family-1"
+                        permalink: "https://instagram.com/p/mock-family-1"
+                        media_url: "https://placehold.co/800x600?text=family"
+                        caption: "Mock post for #family — kid-friendly example"
+                        username: "family_demo"
+                        timestamp: "2025-11-11T16:00:00.000Z"
+                        hashtags: ["family"]
+                      - id: "mock-kids-2"
+                        permalink: "https://instagram.com/p/mock-kids-2"
+                        media_url: "https://placehold.co/800x600?text=kids"
+                        caption: "Mock post for #kids — kid-friendly example"
+                        username: "kids_demo"
+                        timestamp: "2025-11-11T15:00:00.000Z"
+                        hashtags: ["kids"]
+        '400':
+          description: Bad request - invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: Upstream/Instagram fetch error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                instagramError:
+                  summary: Example error when Instagram API fails
+                  value:
+                    error: "failed_to_fetch_feed"
+                    details: "INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID required"
+components:
+  schemas:
+    FeedItem:
+      type: object
+      required:
+        - id
+        - permalink
+        - username
+        - timestamp
+      properties:
+        id:
+          type: string
+          example: "1789382918391234"
+          description: Unique identifier for the post
+        permalink:
+          type: string
+          format: uri
+          example: "https://instagram.com/p/ABC123"
+          description: Permanent link to the post
+        media_url:
+          type: string
+          format: uri
+          example: "https://scontent.cdninstagram.com/..."
+          description: URL of the media (image or video)
+        caption:
+          type: string
+          example: "Fun family day in NYC #family #nyc"
+          description: Post caption text
+        username:
+          type: string
+          example: "family_demo"
+          description: Username of the post author
+        timestamp:
+          type: string
+          format: date-time
+          example: "2025-11-11T16:00:00.000Z"
+          description: ISO 8601 timestamp when the post was created
+        hashtags:
+          type: array
+          items:
+            type: string
+          example: ["family", "nyc"]
+          description: List of hashtags associated with this post
+    Error:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          example: "failed_to_fetch_feed"
+          description: Error code or message
+        details:
+          type: string
+          example: "Connection timeout"
+          description: Additional error details
+x-tagGroups:
+  - name: API Endpoints
+    tags:
+      - Feed
+
+tags:
+  - name: Feed
+    description: |
+      ## Overview
+      
+      The Instagram Hashtag Feed API provides a simple way to retrieve social media posts filtered by hashtags. The API supports two modes:
+      
+      - **Mock Mode** (default): Returns sample data perfect for testing and demonstrations without requiring any credentials
+      - **Instagram Mode**: Fetches real data from the Instagram Graph API (requires authentication)
+      
+      ## Pagination
+      
+      The API uses simple limit-based pagination:
+      
+      - Use the `limit` parameter to control the number of results (1-100)
+      - Results are always sorted newest-first by timestamp
+      - Maximum limit is 100 items per request
+      - For production applications, consider implementing cursor-based pagination
+      
+      ## Error Handling
+      
+      The API returns descriptive error messages with appropriate HTTP status codes:
+      
+      | Status Code | Description |
+      |-------------|-------------|
+      | 200 | Success - feed items returned |
+      | 400 | Bad request - invalid parameters |
+      | 502 | Upstream error - Instagram API failure or misconfiguration |
+      
+      All error responses include:
+      - `error`: A code or short message describing the error
+      - `details`: Additional information about what went wrong
+      
+      ### Common Errors
+      
+      **Instagram Mode Not Configured**
+      ```json
+      {
+        "error": "failed_to_fetch_feed",
+        "details": "INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID required"
+      }
+      ```
+      
+      **Rate Limiting**
+      
+      The API implements built-in caching (default TTL: 120 seconds) to reduce load on the Instagram Graph API. Identical requests within the cache window will return cached results.
+      
+      ## Links
+      
+      - [Main Portfolio Site](https://anandiwrites.dev)
+      - [API Source Code](../../packages/api-app)
+      - [Full Documentation](../../packages/api-app/README.md)

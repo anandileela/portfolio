@@ -1,6 +1,14 @@
-site_name: "My Portfolio"
+site_name: "Technical Writing Portfolio - MkDocs"
 nav:
   - Home: index.md
+  - API Documentation:
+    - Overview: api/overview.md
+    - OpenAPI Specification: api/openapi-spec.md
+    - Error Handling: api/errors.md
+    - Pagination: api/pagination.md
 
 theme:
   name: readthedocs
+  
+extra:
+  main_portfolio: https://anandiwrites.dev

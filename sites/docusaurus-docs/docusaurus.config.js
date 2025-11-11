@@ -83,7 +83,7 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'Technical Writing Portfolio',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -93,11 +93,16 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://anandiwrites.dev',
+            label: 'Main Portfolio',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/anandileela/portfolio',
             label: 'GitHub',
             position: 'right',
           },
