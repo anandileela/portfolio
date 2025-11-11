@@ -17,7 +17,6 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <p> Under construction!</p>
-        </div>
       </div>
     </header>
   );
