@@ -5,9 +5,6 @@ info:
   description: >
     Simple API that returns chronological posts for provided hashtags.
     Supports "mock" mode (no credentials) and optional "instagram" mode (requires Instagram Graph API tokens).
-    
-    
-    **Main Portfolio**: [https://anandiwrites.dev](https://anandiwrites.dev)
   contact:
     name: API Support
     url: https://anandiwrites.dev
@@ -159,60 +156,3 @@ components:
           type: string
           example: "Connection timeout"
           description: Additional error details
-x-tagGroups:
-  - name: API Endpoints
-    tags:
-      - Feed
-
-tags:
-  - name: Feed
-    description: |
-      ## Overview
-      
-      The Instagram Hashtag Feed API provides a simple way to retrieve social media posts filtered by hashtags. The API supports two modes:
-      
-      - **Mock Mode** (default): Returns sample data perfect for testing and demonstrations without requiring any credentials
-      - **Instagram Mode**: Fetches real data from the Instagram Graph API (requires authentication)
-      
-      ## Pagination
-      
-      The API uses simple limit-based pagination:
-      
-      - Use the `limit` parameter to control the number of results (1-100)
-      - Results are always sorted newest-first by timestamp
-      - Maximum limit is 100 items per request
-      - For production applications, consider implementing cursor-based pagination
-      
-      ## Error Handling
-      
-      The API returns descriptive error messages with appropriate HTTP status codes:
-      
-      | Status Code | Description |
-      |-------------|-------------|
-      | 200 | Success - feed items returned |
-      | 400 | Bad request - invalid parameters |
-      | 502 | Upstream error - Instagram API failure or misconfiguration |
-      
-      All error responses include:
-      - `error`: A code or short message describing the error
-      - `details`: Additional information about what went wrong
-      
-      ### Common Errors
-      
-      **Instagram Mode Not Configured**
-      ```json
-      {
-        "error": "failed_to_fetch_feed",
-        "details": "INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_BUSINESS_ACCOUNT_ID required"
-      }
-      ```
-      
-      **Rate Limiting**
-      
-      The API implements built-in caching (default TTL: 120 seconds) to reduce load on the Instagram Graph API. Identical requests within the cache window will return cached results.
-      
-      ## Links
-      
-      - [Main Portfolio Site](https://anandiwrites.dev)
-      - [API Source Code](../../packages/api-app)
-      - [Full Documentation](../../packages/api-app/README.md)
