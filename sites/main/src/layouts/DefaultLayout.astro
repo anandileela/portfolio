@@ -5,6 +5,7 @@ import SiteMeta from '@components/SiteMeta.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
 import { ClientRouter } from 'astro:transitions'
+import Analytics from '@vercel/analytics/astro';
 
 const {
   title = 'Accessible Astro',
@@ -28,6 +29,8 @@ const {
 
     <!-- Enable Astro View Transitions for all browsers -->
     <ClientRouter />
+
+    <Analytics />
   </head>
   <body>
     <Header />
