@@ -6,164 +6,149 @@ import Counter from '@components/Counter.astro'
 import ContentMedia from '@components/ContentMedia.astro'
 import FeaturedProjects from '@components/FeaturedProjects.astro'
 import FeaturedPosts from '@components/FeaturedPosts.astro'
-import { Accordion, AccordionItem, Avatar, AvatarGroup, Heading, Link } from 'accessible-astro-components'
+import { Accordion, AccordionItem, Avatar, AvatarGroup, Heading, Link as AccessibleLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
-import { Link } from 'accessible-astro-components'
-
 ---
- 
 <DefaultLayout title="Home">
   <Hero />
-<section id="select-experience-projects" class="py-12">
-  <div class="container mx-auto px-6">
-    <h2 class="mb-8 text-gradient">SELECT EXPERIENCE AND PROJECTS</h2>
+
+  <section id="select-experience-projects" class="py-12">
+    <div class="container mx-auto px-6">
+      <h2 class="mb-8 text-gradient">SELECT EXPERIENCE AND PROJECTS</h2>
       <p class="mb-6"> Senior Technical Writer specializing in API, SDK, and MCP developer and end-user documentation for SaaS, cloud, analytics, and AI products. Experienced in Docs-as-Code, Hugo, Markdown, and Git-based publishing workflows. Dedicated to creating sustainable, consistent, and scalable information architectures (IA). Focused on creating forward-thinking, audience-tailored documentation for developers, non-technical end users, and LLMs, ensuring clarity for cross-functional stakeholders.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
           <ul class="space-y-5 resume-highlights">
-            <li>AMAZON — PROGRAMMER WRITER</br>
-            Led Ads API AI and IA documentation strategy.
-            Managed internal infrastructure and external API documentation sets.
-            Designed MCP server tool description strategy. 
-             Built AI GTM tools for API launch owners; reduced publishing time from weeks to hours.
-          </li>
-          <li>
-            TEALIUM — SENIOR TECHNICAL WRITER</br>
-            Owned end-to-end documentation for Tealium’s global MarTech platform, improving docs CX and UX and leading AI documentation strategies. Earned multiple innovation awards. Spearheaded new doc improvements, new information architecture, API strategies, and user surveys to better understand documentation audiences.
-          </li>
-          <li>
-            EMORY DIGITAL SCHOLARSHIP - SENIOR STRATEGIST</br>
-            Drove digital pedagogy and digital scholarship transformation across six academic divisions and led programs bridging K–12, higher education, and research. Developed role-aware, multidisciplinary documentation and programs. Supported K-12 and higher education students and faculty to adopt new technologies.
-          </li>
-        </ul>
-      </div>
-      <div class="grid gap-4">
-        <a href="https://drive.google.com/file/d/1LQfCe2A3regvAjEvIjWIjrZRCs6UG6D7/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors" target="_blank">
-          <h3 class="text-lg font-semibold">AMAZON: AMS & Snowflake Integration Guide</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Hosting agnostic integration guide for AMS and Snowflake.</p>
-        </a>
+            <li>AMAZON — PROGRAMMER WRITER<br/>
+              Led Ads API AI and IA documentation strategy.
+              Managed internal infrastructure and external API documentation sets.
+              Designed MCP server tool description strategy. 
+              Built AI GTM tools for API launch owners; reduced publishing time from weeks to hours.
+            </li>
+            <li>
+              TEALIUM — SENIOR TECHNICAL WRITER<br/>
+              Owned end-to-end documentation for Tealium’s global MarTech platform, improving docs CX and UX and leading AI documentation strategies. Earned multiple innovation awards. Spearheaded new doc improvements, new information architecture, API strategies, and user surveys to better understand documentation audiences.
+            </li>
+            <li>
+              EMORY DIGITAL SCHOLARSHIP - SENIOR STRATEGIST<br/>
+              Drove digital pedagogy and digital scholarship transformation across six academic divisions and led programs bridging K–12, higher education, and research. Developed role-aware, multidisciplinary documentation and programs. Supported K-12 and higher education students and faculty to adopt new technologies.
+            </li>
+          </ul>
+        </div>
 
-        <a href="https://drive.google.com/file/d/1muZMx7uYCz9S23UN_a875E0laXgjK8Bj/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank">
-          <h3 class="text-lg font-semibold">TEALIUM: Moments API User Guide</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Moments API overview, implementation guide, and API specification.</p>
-        </a>
+        <div class="grid gap-4">
+          <a href="https://drive.google.com/file/d/1LQfCe2A3regvAjEvIjWIjrZRCs6UG6D7/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors" target="_blank" rel="noopener">
+            <h3 class="text-lg font-semibold">AMAZON: AMS & Snowflake Integration Guide</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Hosting agnostic integration guide for AMS and Snowflake.</p>
+          </a>
 
-        <a href="https://drive.google.com/file/d/1P-eiP8eHAbgofDsPpp5_LV7CP_-YHMEw/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank">
-          <h3 class="text-lg font-semibold">TEALIUM: Early-Access for Snowflake Data Source User Guide</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Guide to import data from Snowflake to Tealium.</p>
-        </a>
+          <a href="https://drive.google.com/file/d/1muZMx7uYCz9S23UN_a875E0laXgjK8Bj/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank" rel="noopener">
+            <h3 class="text-lg font-semibold">TEALIUM: Moments API User Guide</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Moments API overview, implementation guide, and API specification.</p>
+          </a>
 
-        <a href="https://drive.google.com/file/d/1UoiipJucFWewSFK_asmeVcH1JMZODyPV/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank">
-          <h3 class="text-lg font-semibold">TEALIUM: Data Connect - Workato User Guide</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Tealium Workato user guide, including glossary, role definitions, limits, and recipe tutorial. </p>
-        </a>
+          <a href="https://drive.google.com/file/d/1P-eiP8eHAbgofDsPpp5_LV7CP_-YHMEw/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank" rel="noopener">
+            <h3 class="text-lg font-semibold">TEALIUM: Early-Access for Snowflake Data Source User Guide</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Guide to import data from Snowflake to Tealium.</p>
+          </a>
 
-        <a href="https://drive.google.com/file/d/1Z14MdGovyVM7HHGYO5uQNTez2YDFh5oJ/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank">
-          <h3 class="text-lg font-semibold">TEALIUM: Predict ML User Guide</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-300">Tealium Predict ML guide overview, best practices, and data readiness.</p>
-        </a>
+          <a href="https://drive.google.com/file/d/1UoiipJucFWewSFK_asmeVcH1JMZODyPV/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank" rel="noopener">
+            <h3 class="text-lg font-semibold">TEALIUM: Data Connect - Workato User Guide</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Tealium Workato user guide, including glossary, role definitions, limits, and recipe tutorial. </p>
+          </a>
+
+          <a href="https://drive.google.com/file/d/1Z14MdGovyVM7HHGYO5uQNTez2YDFh5oJ/view?usp=sharing" class="block bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-colors"  target="_blank" rel="noopener">
+            <h3 class="text-lg font-semibold">TEALIUM: Predict ML User Guide</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Tealium Predict ML guide overview, best practices, and data readiness.</p>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <style>
-    /* Pink bullets and bold first line for each list item */
-    .resume-highlights { list-style: disc; padding-left: 1.25rem; }
-    .resume-highlights li { margin-left: 0.25rem; }
+    <style>
+      /* Pink bullets and bold first line for each list item */
+      .resume-highlights { list-style: disc; padding-left: 1.25rem; }
+      .resume-highlights li { margin-left: 0.25rem; }
 
-    /* Color the marker (bullet) pink; uses a Tailwind-like pink (#ec4899 = pink-500) */
-    .resume-highlights li::marker {
-      color: #ec4899;
-      font-size: 1rem;
-    }
+      /* Color the marker (bullet) pink; uses a Tailwind-like pink (#ec4899 = pink-500) */
+      .resume-highlights li::marker {
+        color: #ec4899;
+        font-size: 1rem;
+      }
 
-    /* Bold only the first rendered line of each list item */
-    .resume-highlights li::first-line {
-      font-weight: 700;
-    }
+      /* Bold only the first rendered line of each list item */
+      .resume-highlights li::first-line {
+        font-weight: 700;
+      }
 
-    /* Optional: ensure long paragraphs wrap nicely under the bullet */
-    .resume-highlights li {
-      line-height: 1.4;
-    }
-  </style>
-  <section id="podcast"  class="my-24">
-  <div class="container mx-auto px-6">
-  <h2 class="text-gradient">SELECT CHATS ETC.</h2>
-  <ContentMedia imgSrc="/podcast.jpeg" reverseImg={true}>
-    <Heading level="h3"><a href="https://idratherbewriting.com/blog/mcp-tools-language-tech-writing" target="_blank">I'd rather be writing podcast</a></Heading>
-    <p class="text-1xl">I had a great opportunity to chat with Fabrizio Ferri Benedetti and Tom Johnson about MCP servers and the role that technical writers can play in shaping AI capabilities and outcomes. I shared my take on how writers can optimize documentation for LLM performance and expands on opportunities to collaborate with developers around AI tools. Our discussion also touches on ways to automate style consistency in docs, and the future directions of technical writing given the abundance of AI tools, MCP servers, and the central role that language plays in it all.</p>
-  </ContentMedia>
-</section>
-     <section id="featured-blog" >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="mb-8 text-gradient">MEDIUM MUSINGS</h2>
+      /* Optional: ensure long paragraphs wrap nicely under the bullet */
+      .resume-highlights li {
+        line-height: 1.4;
+      }
+    </style>
+  </section>
 
-            <!-- Card Grid: 3 columns on large screens, 2 on medium, 1 on mobile -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <section id="podcast" class="my-24">
+    <div class="container mx-auto px-6">
+      <h2 class="text-gradient">SELECT CHATS ETC.</h2>
+      <ContentMedia imgSrc="/podcast.jpeg" reverseImg={true}>
+        <Heading level="h3"><a href="https://idratherbewriting.com/blog/mcp-tools-language-tech-writing" target="_blank" rel="noopener">I'd rather be writing podcast</a></Heading>
+        <p class="text-1xl">I had a great opportunity to chat with Fabrizio Ferri Benedetti and Tom Johnson about MCP servers and the role that technical writers can play in shaping AI capabilities and outcomes. I shared my take on how writers can optimize documentation for LLM performance and expands on opportunities to collaborate with developers around AI tools. Our discussion also touches on ways to automate style consistency in docs, and the future directions of technical writing given the abundance of AI tools, MCP servers, and the central role that language plays in it all.</p>
+      </ContentMedia>
+    </div>
+  </section>
 
-                <!-- Card 1: deCerteau -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500">
-                    <!-- Featured Image -->
-                    <img class="w-full h-48 object-cover" 
-                         src="/img/decerteau.jpg" 
-                         alt="Film still from Home Alone of the mom at a ticket counter" 
-                         loading="lazy"
-                    >
-                    <!-- Content -->
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">de Certeau: strategies. tactics. UX research?</h3>
-                        <p class="text-gray-700 mb-4 text-sm">Strategies. Tactics. Customer experience. All via de Certeau.</p>
-                        <a href="https://medium.com/@anandi.silva.knuppel/de-certeau-strategies-tactics-ux-research-a3ddaa841a12" target="_blank" class="text-blue-600 font-semibold underline hover:text-blue-800 flex items-center focus:outline-none">Read Post &rarr;</a>
-                    </div>
-                </div>
+  <section id="featured-blog" class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="mb-8 text-gradient">MEDIUM MUSINGS</h2>
 
-                <!-- Card 2: Foucault -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500">
-                    <!-- Featured Image -->
-                    <img class="w-full h-48 object-cover" 
-                         src="/img/foucault.gif" 
-                         alt="Schitts Creek screenshot of David asking What have you Done?" 
-                         loading="lazy"
-                    >
-                    <!-- Content -->
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">I don’t know what I’m doing and you don’t either and it’s really Foucault’s fault.</h3>
-                        <p class="text-gray-700 mb-4 text-sm">A ramble wherein I kind of, not really, talk about Foucault and limits of knowledge and use too many Schitt’s Creek gifs.</p>
-                        <a href="https://medium.com/@anandi.silva.knuppel/i-dont-know-what-i-m-doing-or-what-you-re-doing-and-you-don-t-either-and-it-s-foucault-s-fault-9e5daee11d6f" target="_blank" class="text-green-600 font-semibold underline hover:text-green-800 flex items-center focus:outline-none">Read Post &rarr;</a>
-                    </div>
-                </div>
+      <!-- Card Grid: 3 columns on large screens, 2 on medium, 1 on mobile -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500">
+          <img class="w-full h-48 object-cover" src="/img/wink.gif" alt="Jeff Goldblum wink" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">The "Engineering" of the Technical Writer</h3>
+            <p class="text-gray-700 mb-4 text-sm">Feelings about the current job market and new training directions for writers. And Jeff Goldblum.</p>
+            <a href="https://medium.com/@anandi.silva.knuppel/the-engineering-of-the-technical-writer-89092b609cf0" target="_blank" rel="noopener" class="text-blue-600 font-semibold underline hover:text-blue-800 flex items-center">Read Post &rarr;</a>
+          </div>
+        </article>
 
-                <!-- Card 3: Art and science -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500">
-                    <!-- Featured Image -->
-                    <img class="w-full h-48 object-cover" 
-                         src="/img/artscience.gif" 
-                         alt="Bill Nye" 
-                         loading="lazy"
-                    >
-                    <!-- Content -->
-                    <div class="p-5">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">The art and science of UX Research</h3>
-                        <p class="text-gray-700 mb-4 text-sm">Art and science and thinking big about UX research.</p>
-                        <a href="https://medium.com/@anandi.silva.knuppel/musings-the-art-and-science-of-ux-research-15fc08ffddb2" target="_blank" class="text-yellow-700 font-semibold underline hover:text-yellow-800 flex items-center focus:outline-none">Read Post &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
- </DefaultLayout>
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500">
+          <img class="w-full h-48 object-cover" src="/img/decerteau.jpg" alt="de Certeau" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">de Certeau: strategies. tactics. UX research?</h3>
+            <p class="text-gray-700 mb-4 text-sm">Strategies. Tactics. Customer experience. All via de Certeau.</p>
+            <a href="https://medium.com/@anandi.silva.knuppel/de-certeau-strategies-tactics-ux-research-a3ddaa841a12" target="_blank" rel="noopener" class="text-blue-600 font-semibold underline hover:text-blue-800 flex items-center">Read Post &rarr;</a>
+          </div>
+        </article>
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500">
+          <img class="w-full h-48 object-cover" src="/img/foucault.gif" alt="Foucault" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">I don’t know what I’m doing and you don’t either and it’s really Foucault’s fault.</h3>
+            <p class="text-gray-700 mb-4 text-sm">A ramble wherein I kind of, not really, talk about Foucault and limits of knowledge and use too many Schitt’s Creek gifs.</p>
+            <a href="https://medium.com/@anandi.silva.knuppel/i-dont-know-what-i-m-doing-or-what-you-re-doing-and-you-don-t-either-and-it-s-foucault-s-fault-9e5daee11d6f" target="_blank" rel="noopener" class="text-green-600 font-semibold underline hover:text-green-800 flex items-center">Read Post &rarr;</a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500">
+          <img class="w-full h-48 object-cover" src="/img/artscience.gif" alt="Art and science of UX Research" loading="lazy" />
+          <div class="p-5">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">The art and science of UX Research</h3>
+            <p class="text-gray-700 mb-4 text-sm">Art and science and thinking big about UX research.</p>
+            <a href="https://medium.com/@anandi.silva.knuppel/musings-the-art-and-science-of-ux-research-15fc08ffddb2" target="_blank" rel="noopener" class="text-yellow-700 font-semibold underline hover:text-yellow-800 flex items-center">Read Post &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</DefaultLayout>
 
 <style>
   .avatar {
     border: 1px solid var(--border-color-subtle);
     border-radius: var(--radius-md);
     padding: var(--space-s);
-  }
-
-  <style lang="scss">
-  h1 {
-    text-wrap: unset;
   }
 
   .text-gradient {
@@ -176,5 +161,4 @@ import { Link } from 'accessible-astro-components'
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
 </style>
