@@ -3,7 +3,7 @@ layout: ../layouts/MarkdownLayout.astro
 title: User Guide - Technical Writer Assignment
 ---
 
-# Employee Onboarding API
+# Employee Onboarding
 
 This guide describes how to upload employee records to Veeva Vault and use the Employee Onboarding API to mark them as onboarded.
 
@@ -20,7 +20,7 @@ Requirements:
 
 ## Step 1: Authenticate and get a session ID
 
-All API calls require a valid Vault session ID passed in the `Authorization` header. Authenticate using your Vault credentials. For more information, see [Veeva: Authentication](https://developer.veevavault.com/docs/#authentication).
+All API calls require a valid Vault session ID passed in the `Authorization` header. Authenticate using your Vault credentials. For more information, see [Veeva: Authentication](https://developer.veevavault.com/docs/#authentication) and [Veeva: Structuring the Endpoint](https://developer.veevavault.com/docs/#structuring-the-endpoint).
 
 ### Request example
 
@@ -57,7 +57,7 @@ Jane Smith,EMP001,Engineering,active__v
 John Doe,EMP002,Marketing,active__v
 ```
 
-> **Tip:** To confirm required fields for your Vault, call `GET /api/v26.1/metadata/vobjects/employee__c` and check which fields have `"required": true`. Picklist values must use the API name (e.g. `active__v`, not `Active`).
+> **Tip:** To confirm required fields for your Vault, call `GET /api/v26.1/metadata/vobjects/employee__c` and check which fields have `"required": true`. Picklist values must use the API name (for example, `active__v`, not `Active`).
 
 ---
 
@@ -86,7 +86,7 @@ SUCCESS,V7S000000002005,,1
 SUCCESS,V7S000000002006,,2
 ```
 
-> **Important:** Save the `id` values returned in the response to use with the Employee Onboarding API.
+> **Important:** Save the `employee_id` values returned in the response to use with the Employee Onboarding API.
 
 If you need to look up an employee's Vault record ID after upload, open the employee record in the Vault UI. The record ID appears in the URL as the segment starting with your object prefix (for example, `V7S`).
 
@@ -105,7 +105,7 @@ The record ID from this URL is: `V7S000000002005`
 
 If you have address data to associate with your employees, upload it as a separate CSV to the `address__c` object.
 
-> **Note:** Each address record must reference the Vault record ID of the employee it belongs to (returned in the Step 3 response), not your internal employee ID.
+> **Note:** Each address record must reference the Vault record ID of the employee it belongs to (returned in the Step 3 response), not the internal employee ID.
 
 ### Example address CSV
 

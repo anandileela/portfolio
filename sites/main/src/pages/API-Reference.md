@@ -41,8 +41,8 @@ Requires membership in the **HR WebAPI Group**. Requests from users outside this
 
 | Name | Type | Required | Description |
 |---|---|---|---|
-| `employee_id` | string | Yes | The Vault record ID of the employee to onboard. Must correspond to an existing employee record. Example: `V7S000000002005` |
-| `onboarding_date` | string | Yes | The date to set as the employee's onboarded date. Format: `YYYY-MM-DD`. Example: `2026-03-27` |
+| `employee_id` | string | Yes | The Vault record ID of the employee to onboard. Must correspond to an existing employee record. Example: `V7S000000002005`. |
+| `onboarding_date` | string | Yes | The date to set as the employee's onboarded date. Format: `YYYY-MM-DD`. Example: `2026-03-27`. |
 
 ---
 
