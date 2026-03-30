@@ -3,9 +3,11 @@ layout: ../layouts/MarkdownLayout.astro
 title: Employee Onboarding API - Technical Writer Assignment
 ---
 
-# Employee Onboarding API
+> Potential location: Vault Objects>Update Onboarding Records
 
-Updates employee records' onboarded date. Only employees who are already onboarded can call HR APIs.
+# Update Employee Onboarding
+
+Updates employee records' onboarded date using the Employee Onboarding API. Only employees who are already onboarded can call HR APIs.
 
 ## Requirements
 

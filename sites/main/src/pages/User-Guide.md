@@ -3,6 +3,8 @@ layout: ../layouts/MarkdownLayout.astro
 title: User Guide - Technical Writer Assignment
 ---
 
+Potential location: Creating & Downloading Documents in Bulk>Employee Onboarding API
+
 # Employee Onboarding
 
 This guide describes how to upload employee records to Veeva Vault and use the Employee Onboarding API to mark them as onboarded.
